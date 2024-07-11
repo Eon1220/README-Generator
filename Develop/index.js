@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+// sets up read me generation after it recives inputs 
 const generateReadMe = ({ title, discription, installation, usage, test, license, github, email, credit}) =>
 `# ${title}
 
@@ -31,7 +32,7 @@ const generateReadMe = ({ title, discription, installation, usage, test, license
  - ${credit, github, email}` 
 ;
 
-
+// prompts user for inputs
 inquirer
     .prompt([
         {
@@ -84,7 +85,8 @@ inquirer
         },
         
     ])
-    
+
+    // Generates readme file
     .then((answers) => {
         const readMeContent = generateReadMe(answers);
 
